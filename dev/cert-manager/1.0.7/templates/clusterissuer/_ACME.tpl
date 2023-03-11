@@ -64,7 +64,7 @@ spec:
           resourceGroupName: {{ .azureResourceGroup }}
           hostedZoneName: {{ .azureDNSZone }}
           environment: {{ .azureEnvironment }}
-          {{- if eq .azureAuthType servicePrincipal }}
+          {{- if eq .azureAuthType "servicePrincipal" }}
           clientID: {{ .azureSpClientAppId }}
           clientSecretSecretRef:
             name: {{ .name }}-clusterissuer-secret
