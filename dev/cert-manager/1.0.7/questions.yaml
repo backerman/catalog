@@ -30,7 +30,6 @@ groups:
   - name: Documentation
     description: Documentation
 questions:
-
   - variable: clusterIssuer
     group: App Configuration
     label: Cluster Certificate Issuer
@@ -226,6 +225,7 @@ questions:
                       schema:
                         show_if: [["type", "=", "azure"]]
                         required: true
+                        type: string
                         default: "AzurePublicCloud"
                         enum:
                           - value: "AzurePublicCloud"
@@ -242,6 +242,7 @@ questions:
                       schema:
                         show_if: [["type", "=", "azure"]]
                         required: true
+                        type: string
                         default: "servicePrincipal"
                         enum:
                           - value: "aadWorkloadIdentity"
@@ -257,14 +258,23 @@ questions:
                             description: "Service principal client application ID"
                             schema:
                               show_if: [["azureAuthType", "=", "servicePrincipal"]]
+                              required: true
+                              type: string
+                              default: ""
                           - variable: azureSpTenantId
                             description: "Service principal client tenant ID"
                             schema:
                               show_if: [["azureAuthType", "=", "servicePrincipal"]]
+                              required: true
+                              type: string
+                              default: ""
                           - variable: azureSpClientSecret
                             description: "Service principal client secret"
                             schema:
                               show_if: [["azureAuthType", "=", "servicePrincipal"]]
+                              required: true
+                              type: string
+                              default: ""
                     - variable: nameserver
                       label: rfc2136 Namesever
                       description: "rfc2136 Namesever"
